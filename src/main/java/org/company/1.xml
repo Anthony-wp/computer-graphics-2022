@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns="http://purl.org/rss/1.0/" xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns">
+    <channel rdf:about="https://nssdc.qsfc.nasa.gov/nmc/spacecraft/display.action?id=1975-083C">
+        <title>National Aeronautics and Space Administration</title>
+        <description>Viking 2 Lander</description>
+        <link>https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1975-083C</link>
+        <items>
+            <rdf:Seq>
+                <rdf:li rdf:resource=""
+                "https://nssde.gsfc.nasa.gov/nmc/spacecraft/displayTrajectory.action?id-1975-083C"
+                />
+                <rdf:li rdf:resource="https://nssdc.gsfc.nasa.gov/nmc/spacecraft/displayExperiment.action?spacecraftId=1975-083C"/>
+                <rdf:li rdf:resource="https://nssde.gsfc.nasa.gov/nmc/spacecraft/displayTelemetry.action?id=1975-083C/">
+                <rdf:li rdf:resource="https://nssdc.gsfc.nasa.gov/nmc/spacecraft/displayDataset.action?spacecraftId=1975-083C"/>
+            </rdf:Seq>
+        </items>
+    </channel>
+    <item rdf:about="https://nssdc.gsfc.nasa.gov/nmc/spacecraft/displayTrajectory.action?id-1975-083C">
+        <title>Launch Information</title>
+        <link>https://nssdc.gsfc.nasa.gov/nmc/SpacecraftQuery.jsp</link>
+    </item>
+    <item rdf:about="https://nssdc.gsfc.nasa.gov/nmc/spacecraft/displayExperiment.action?spacecraftId-1975-083C">
+        <title>Experiment Search Results</title>
+        <link>https://nssdc.gsfc.nasa.gov/nmc/spacecraft/displayExperiment.action?spacecraftId-1975-083C</link>
+    </item>
+    <item rdf:about="https://nssdc.gsfc.nasa.gov/nmc/spacecraft/displayTelemetry.action?id=1975-083C/">
+        <title>Experiment Search Results</title>
+        <link>https://nssdc.gsfc.nasa.gov/nmc/spacecraft/displayTelemetry.action?id=1975-083C</link>
+    </item>
+    <item rdf:about="https://nssdc.gsfc.nasa.gov/nmc/spacecraft/displayDataset.action?spacecraftId=1975-083C">
+        <title>Data Collection Search Results</title>
+        <link>https://nssdc.gsfc.nasa.gov/nmc/spacecraft/displayDataset.action?spacecraftId=1975-083C</link>
+    </item>
+</rdf:RDF>
