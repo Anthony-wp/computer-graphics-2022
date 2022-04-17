@@ -28,10 +28,8 @@ public class CohenSutherland extends JFrame {
 
         g2d.draw(line);
 
-        g2d.setColor(Color.RED);
-        g2d.setStroke(STROKE);
-        g2d.draw(algorithm.clip(line));
-
+        GraphHolder graphHolder = algorithm.clip(line, g2d);
+        graphHolder.getG2d().draw(graphHolder.getLine());
     }
 
     private void drawRectangle(Graphics2D g2d) {
