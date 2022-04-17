@@ -2,7 +2,6 @@ package org.company.lab2;
 
 import java.awt.*;
 import java.awt.geom.Line2D;
-import java.awt.geom.Path2D;
 import java.awt.geom.Rectangle2D;
 import javax.swing.*;
 
@@ -10,6 +9,8 @@ public class CohenSutherland extends JFrame {
     private static Rectangle2D clipWindow;
     private static CohenSutherlandClipping algorithm;
     private static final double DELTA = 0.001;
+    private static Stroke STROKE = new BasicStroke(3f);
+    private static Stroke BASIC_STROKE = new BasicStroke(1f);
 
     public CohenSutherland() {
         super("Cohen-Sutherland");
@@ -20,25 +21,21 @@ public class CohenSutherland extends JFrame {
     }
 
     void drawLines(Graphics g) {
-        Graphics2D g2d = (Graphics2D) g;
+        Line2D.Float line = new Line2D.Float(130, 50, 350, 170);
 
-        g2d.draw(clipWindow);
-        Line2D.Float line = new Line2D.Float(50, 150, 350, 70);
+        Graphics2D g2d = (Graphics2D) g;
+        drawRectangle(g2d);
 
         g2d.draw(line);
 
-        Path2D path2D = new Path2D.Float();
-        path2D.moveTo(40, 140);
-        path2D.lineTo(340, 60);
-
-        Stroke stroke1 = new BasicStroke(3f);
-
-        g2d.draw(path2D);
-        g2d.setColor(Color.BLACK);
-        g2d.setStroke(stroke1);
         g2d.setColor(Color.RED);
+        g2d.setStroke(STROKE);
         g2d.draw(algorithm.clip(line));
 
+    }
+
+    private void drawRectangle(Graphics2D g2d) {
+        g2d.draw(clipWindow);
     }
 
     public void paint(Graphics g) {
