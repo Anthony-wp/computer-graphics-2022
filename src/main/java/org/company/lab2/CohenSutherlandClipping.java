@@ -1,5 +1,6 @@
 package org.company.lab2;
 
+import java.awt.*;
 import java.awt.geom.Rectangle2D;
 import java.awt.geom.Line2D;
 
@@ -43,15 +44,7 @@ public final class CohenSutherlandClipping {
         yMax = yMin + clipWindow.getHeight();
     }
 
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
-    /**
-     * Clips a given line against the clip window.
-     * The modification (if needed) is done in place.
-     * @param line the line to clip.
-     * @return true if line is clipped, false if line is
-     * totally outside the clip window.
-     */
-    public boolean clip(Line2D.Float line) {
+    public Line2D.Float clip(Line2D.Float line) {
         Point point1 = new Point(line.getX1(), line.getY1());
         Point point2 = new Point(line.getX2(), line.getY2());
         Point outsidePoint = new Point(0d, 0d);
@@ -61,7 +54,8 @@ public final class CohenSutherlandClipping {
 
         while (point1.region != INSIDE || point2.region != INSIDE) {
             if ((point1.region & point2.region) != 0) {
-                return false;
+                System.out.println("!!!!!!");
+                return line;
             }
 
             outsidePoint.region = (point1.region == INSIDE) ? point2.region : point1.region;
@@ -95,7 +89,7 @@ public final class CohenSutherlandClipping {
             }
         }
         line.setLine(point1.x, point1.y, point2.x, point2.y);
-        return true;
+        return line;
     }
 
     private static double delta(double value1, double value2) {
