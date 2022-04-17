@@ -24,7 +24,7 @@ public final class CohenSutherlandClipping {
     private final static float MINIMUM_DELTA = 0.01f;
 
     private static Stroke BASIC_STROKE = new BasicStroke(1f);
-    private static Stroke STROKE = new BasicStroke(3f);
+    private static Stroke STROKE = new BasicStroke(2f);
 
     public CohenSutherlandClipping() {}
 
@@ -47,7 +47,7 @@ public final class CohenSutherlandClipping {
         yMax = yMin + clipWindow.getHeight();
     }
 
-    public GraphHolder clip(Line2D.Float line, Graphics2D g2d) {
+    public GraphHolder clip(Line2D.Float line) {
         Point point1 = new Point(line.getX1(), line.getY1());
         Point point2 = new Point(line.getX2(), line.getY2());
         Point outsidePoint = new Point(0d, 0d);
@@ -57,9 +57,7 @@ public final class CohenSutherlandClipping {
 
         while (point1.region != INSIDE || point2.region != INSIDE) {
             if ((point1.region & point2.region) != 0) {
-                g2d.setColor(Color.BLACK);
-                g2d.setStroke(BASIC_STROKE);
-                return new GraphHolder(g2d, line);
+                return new GraphHolder(BASIC_STROKE, Color.BLACK, line);
             }
 
             outsidePoint.region = (point1.region == INSIDE) ? point2.region : point1.region;
@@ -93,10 +91,8 @@ public final class CohenSutherlandClipping {
             }
         }
         line.setLine(point1.x, point1.y, point2.x, point2.y);
-        g2d.setColor(Color.RED);
-        g2d.setStroke(STROKE);
 
-        return new GraphHolder(g2d, line);
+        return new GraphHolder(STROKE, Color.RED, line);
     }
 
     private static double delta(double value1, double value2) {

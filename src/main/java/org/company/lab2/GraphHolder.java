@@ -11,6 +11,7 @@ import java.awt.geom.Line2D;
 @Setter
 @AllArgsConstructor
 public class GraphHolder {
-    private Graphics2D g2d;
+    private Stroke stroke;
+    private Color color;
     private Line2D.Float line;
 }

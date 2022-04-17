@@ -15,5 +15,6 @@
     <orderEntry type="library" name="jfreechart-1.5.3" level="project" />
     <orderEntry type="library" name="jcommon-0.8.3" level="project" />
     <orderEntry type="library" name="Maven: org.projectlombok:lombok:1.18.22" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.8.1" level="project" />
   </component>
 </module>
